@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opus-Green | ESG Data Analytics & Strategy</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+    :root {
+      --dark-brown: #1a0e05; /* very dark rich brown */
+      --warm-brown: #4b2e1e;
+      --opaline: #f8f9f7;
+      --accent-gold: #bfa46f;
+      --accent-green: #4a7c59;
+      --text-light: #f5f5f5;
+      --text-dark: #2c2c2c;
+    }
+
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      background-color: var(--dark-brown);
+      color: var(--text-light);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background-color: var(--dark-brown);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--warm-brown);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.75rem;
+      color: var(--accent-gold);
+      letter-spacing: 0.1em;
+    }
+
+    nav a {
+      color: var(--text-light);
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    main {
+      flex-grow: 1;
+      background-color: var(--opaline);
+      color: var(--text-dark);
+      padding: 4rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 0 0 1rem 1rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
+
+    #hero {
+      background-color: var(--dark-brown);
+      color: var(--text-light);
+      padding: 6rem 3rem 8rem 3rem;
+      text-align: center;
+      border-radius: 1rem 1rem 0 0;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+
+    #hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      max-width: 900px;
+      margin: 0 auto 1.5rem auto;
+      letter-spacing: 0.05em;
+    }
+
+    #hero p {
+      font-size: 1.5rem;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    #hero a.button {
+      background-color: var(--accent-gold);
+      color: var(--dark-brown);
+      font-weight: 700;
+      padding: 1rem 3rem;
+      border-radius: 0.5rem;
+      font-size: 1.125rem;
+      box-shadow: 0 4px 10px rgba(191, 164, 111, 0.6);
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    #hero a.button:hover {
+      background-color: var(--warm-brown);
+      color: var(--text-light);
+      box-shadow: 0 6px 15px rgba(75, 46, 30, 0.8);
+    }
+
+    section {
+      margin-bottom: 5rem;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid var(--warm-brown);
+      padding-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    section p {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      max-width: 900px;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    ul.services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 0;
+      list-style: none;
+      max-width: 1000px;
+      margin: 2rem auto 0 auto;
+    }
+
+    ul.services-list li {
+      background-color: var(--opaline);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2.5rem 2rem;
+      flex: 1 1 320px;
+      max-width: 350px;
+      color: var(--dark-brown);
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+
+    ul.services-list li:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    ul.services-list li h3 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: var(--warm-brown);
+      font-size: 1.25rem;
+    }
+
+    ul.services-list li p {
+      font-weight: 400;
+      color: #5a4a3a;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .insights-article {
+      background-color: var(--opaline);
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--dark-brown);
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .insights-article:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .insights-article h3 {
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--warm-brown);
+      font-size: 1.5rem;
+    }
+
+    .insights-article p {
+      font-weight: 400;
+      color: #5a4a3a;
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    form label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--warm-brown);
+      font-size: 1rem;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      color: var(--dark-brown);
+      margin-bottom: 1.5rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: var(--warm-brown);
+      box-shadow: 0 0 0 4px rgba(191, 164, 111, 0.5);
+    }
+
+    form button {
+      background-color: var(--warm-brown);
+      color: var(--opaline);
+      padding: 1rem 3rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(191, 164, 111, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: var(--accent-gold);
+      box-shadow: 0 8px 20px rgba(191, 164, 111, 0.8);
+    }
+
+    footer {
+      background-color: var(--opaline);
+      color: var(--warm-brown);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-weight: 600;
+      border-top: 3px solid var(--warm-brown);
+      font-size: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2.25rem;
+      }
+      #hero p {
+        font-size: 1.125rem;
+      }
+      ul.services-list {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Opus-Green</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <h1>Driving ESG Strategy with Data Intelligence</h1>
+      <p>Empowering Fortune 1000 companies with sophisticated data analytics for sustainable impact.</p>
+      <a href="#contact" class="button">Schedule a Consultation</a>
+      <!-- Placeholder for 3D data visualization wow fixture -->
+      <div id="data-viz" class="mt-12" style="height: 400px; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, #4b2e1e, #1a0e05); border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: var(--opaline); font-weight: 700; font-size: 1.5rem;">
+        3D Data Visualization Placeholder
+      </div>
+    </section>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>Opus-Green is a data analytics consultancy specializing in developing ESG strategies for Fortune 1000 companies. Our mission is to deliver data-driven insights that empower executives to make sustainable, impactful decisions.</p>
+    </section>
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul class="services-list">
+        <li>
+          <h3>ESG Data Assessment</h3>
+          <p>Comprehensive evaluation of environmental impact through advanced data analytics.</p>
+        </li>
+        <li>
+          <h3>Strategy Development</h3>
+          <p>Tailored ESG strategy building leveraging data visualization and predictive modeling.</p>
+        </li>
+        <li>
+          <h3>Performance Tracking</h3>
+          <p>Ongoing monitoring and reporting of ESG metrics to ensure continuous improvement.</p>
+        </li>
+        <li>
+          <h3>Reporting & Compliance</h3>
+          <p>Assistance with regulatory reporting and compliance through transparent data management.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="our-data">
+      <h2>Our Data & Methodology</h2>
+      <p>We utilize cutting-edge data collection, analysis, and 3D visualization techniques to provide unparalleled insights into ESG performance and impact.</p>
+      <div id="data-viz-2" class="mt-8" style="height: 350px; max-width: 900px; margin: 0 auto; background: linear-gradient(135deg, #1a0e05, #4b2e1e); border-radius: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; color: var(--opaline); font-weight: 700; font-size: 1.25rem;">
+        Interactive 3D Data Visualization Placeholder
+      </div>
+    </section>
+    <section id="case-studies">
+      <h2>Case Studies & Impact</h2>
+      <p>Discover how our data-driven ESG strategies have helped Fortune 1000 companies achieve measurable sustainability goals.</p>
+      <ul class="services-list">
+        <li>
+          <h3>Global Energy Company</h3>
+          <p>Reduced carbon emissions by 15% through optimized data center operations.</p>
+        </li>
+        <li>
+          <h3>Financial Services Firm</h3>
+          <p>Implemented predictive analytics to improve ESG reporting accuracy and compliance.</p>
+        </li>
+      </ul>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <form action="#" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Opus-Green. All rights reserved.</p>
+  </footer>
+</body>
+</html>
